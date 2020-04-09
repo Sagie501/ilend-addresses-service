@@ -1,9 +1,7 @@
-import { UsersConnector } from './users.connector';
-
 export const resolvers = {
   Query: {
-    users: async () => {
-      return await new UsersConnector().getAllUsers()
+    users: async (source, args, { dataSources }) => {
+      return await dataSources.seedDataSource.usersConnector.getAllUsers();
     },
-  },
+  }
 };

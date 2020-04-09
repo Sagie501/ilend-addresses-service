@@ -1,20 +1,13 @@
+import Knex from 'knex';
+
 export class UsersConnector {
-  users = [
-    {
-      name: 'Niv',
-      age: 23
-    },
-    {
-      name: 'Tom',
-      age: 24
-    }
-  ];
+  private knex: Knex;
+
+  constructor(knex: Knex) {
+    this.knex = knex;
+  }
 
   async getAllUsers() {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(this.users);
-      }, 500);
-    });
+    return this.knex.select('*').from('users');
   }
 }

@@ -5,18 +5,25 @@ import { rootTypeDefs } from './root-schema';
 import { Environment } from './environment/environment';
 import { Config } from './environment/config';
 import { buildFederatedSchema } from '@apollo/federation';
+import { SeedDataSource } from './data-source/seed-data-source';
 
 const app = express();
 
+const config: Config = Environment.getConfig();
+
+const seedDataSource = new SeedDataSource(config.dbConfig);
 const server = new ApolloServer({
   schema: buildFederatedSchema([{
     typeDefs: rootTypeDefs,
     resolvers: rootResolvers
   }]),
+  dataSources: () => {
+    return {
+      seedDataSource
+    };
+  }
 });
 server.applyMiddleware({ app });
-
-const config: Config = Environment.getConfig();
 
 app.listen({ port: config.port }, () => {
   console.log(`${config.serviceName} ready at port: ${config.port}`)

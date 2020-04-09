@@ -22,8 +22,9 @@ In order to do it follow this steps:
 5. Rename the `README-NEW.md` file to `README.md`
 6. Inside the new `README.md` file rename the title that will fit to your service name.
 7. Inside the `entities` directory you will see example of entities. Remove them and add your entities directories. Now you can start develop your `schema`, `resolvers` and `connectors`.
-8. In the `root-resolvers` and `root-schema` directories you will need to import your `schema` and `resolvers`.
-9. Follow the new `README.md` file in order to see how start using your new service.
+8. Inside the `data-source` directory you will find an example seed data source. Delete it, create your own data source and add the connectors to this data source
+9. In the `root-resolvers` and `root-schema` directories you will need to import your `schema` and `resolvers`.
+10. Follow the new `README.md` file in order to see how start using your new service.
 
 
 ### Enjoy!

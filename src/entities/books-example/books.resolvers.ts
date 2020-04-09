@@ -1,9 +1,7 @@
-import { BooksConnector } from './books.connector';
-
 export const resolvers = {
   Query: {
-    books: async () => {
-      return await (new BooksConnector().getAllBooks())
+    books: async (source, args, { dataSources }) => {
+      return await dataSources.seedDataSource.booksConnector.getAllBooks();
     },
-  },
+  }
 };
