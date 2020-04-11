@@ -5,7 +5,7 @@ import path from 'path';
 export class AddressConnector extends DataSource {
 
   countries: Array<string>;
-  cities: any;
+  cities: Array<any>;
 
   constructor() {
     super();
