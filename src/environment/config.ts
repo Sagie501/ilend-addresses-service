@@ -1,5 +1,5 @@
 const baseConfig: Config = {
-  port: parseInt(process.env.PORT, 10) || 3000,
+  port: parseInt(process.env.PORT, 10) || 5002,
   serviceName: process.env.SERVICE_NAME || 'Addresses Service'
 };
 
