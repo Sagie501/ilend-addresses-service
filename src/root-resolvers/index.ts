@@ -1,5 +1,4 @@
-import { resolvers as booksResolver } from '../entities/books-example/books.resolvers';
-import { resolvers as usersResolver } from '../entities/users-example/users.resolvers';
+import { resolvers as addressResolver } from '../entities/address/address.resolvers';
 import * as _ from 'lodash';
 
-export const rootResolvers = _.merge(booksResolver, usersResolver);
+export const rootResolvers = _.merge(addressResolver);

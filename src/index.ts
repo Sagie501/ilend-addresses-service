@@ -5,13 +5,17 @@ import { rootTypeDefs } from './root-schema';
 import { Environment } from './environment/environment';
 import { Config } from './environment/config';
 import { buildFederatedSchema } from '@apollo/federation';
-import { SeedDataSource } from './data-source/seed-data-source';
+import { AddressConnector } from './entities/address/address.connector';
+import * as fs from 'fs';
 
 const app = express();
 
 const config: Config = Environment.getConfig();
 
-const seedDataSource = new SeedDataSource(config.dbConfig);
+fs.readFile('tsconfig.json', (err, data) => {
+  console.log(data);
+});
+const addressConnector = new AddressConnector();
 const server = new ApolloServer({
   schema: buildFederatedSchema([{
     typeDefs: rootTypeDefs,
@@ -19,7 +23,7 @@ const server = new ApolloServer({
   }]),
   dataSources: () => {
     return {
-      seedDataSource
+      addressConnector
     };
   }
 });

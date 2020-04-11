@@ -1,17 +1,6 @@
-import Knex from 'knex';
-
 const baseConfig: Config = {
-  port: parseInt(process.env.PORT, 10) || 4000,
-  serviceName: process.env.SERVICE_NAME || 'Addresses Service',
-  dbConfig: {
-    client: process.env.DB_CLIENT || 'mysql',
-    connection: {
-      host : process.env.DB_HOST || '127.0.0.1',
-      user : process.env.DB_USER || 'root',
-      password : process.env.DB_PASSWORD || '1qaz!QAZ',
-      database : process.env.DB_SCHEMA || 'ilend'
-    }
-  }
+  port: parseInt(process.env.PORT, 10) || 3000,
+  serviceName: process.env.SERVICE_NAME || 'Addresses Service'
 };
 
 export const config: EnvironmentConfig = {
@@ -31,5 +20,4 @@ export interface EnvironmentConfig {
 export interface Config {
   port: number;
   serviceName: string;
-  dbConfig: Knex.Config;
 }
