@@ -6,15 +6,11 @@ import { Environment } from './environment/environment';
 import { Config } from './environment/config';
 import { buildFederatedSchema } from '@apollo/federation';
 import { AddressConnector } from './entities/address/address.connector';
-import * as fs from 'fs';
 
 const app = express();
 
 const config: Config = Environment.getConfig();
 
-fs.readFile('tsconfig.json', (err, data) => {
-  console.log(data);
-});
 const addressConnector = new AddressConnector();
 const server = new ApolloServer({
   schema: buildFederatedSchema([{

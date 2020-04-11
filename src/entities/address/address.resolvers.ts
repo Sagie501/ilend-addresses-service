@@ -1,10 +1,10 @@
 export const resolvers = {
   Query: {
-    getAllCountries: async (source, args, { dataSources }) => {
-      return await dataSources.addressConnector.getAllCountries();
+    getAllCountries: (source, args, { dataSources }) => {
+      return dataSources.addressConnector.getAllCountries();
     },
-    getCitiesByCountry: async (source, args, { dataSources }) => {
-      return await dataSources.addressConnector.getCitiesByCountry(args.countryName);
+    getCitiesByCountry: (source, args, { dataSources }) => {
+      return dataSources.addressConnector.getCitiesByCountry(args.countryName);
     }
   }
 };

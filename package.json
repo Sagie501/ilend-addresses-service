@@ -6,7 +6,8 @@
   "scripts": {
     "start": "npm run build && node dist/index.js",
     "dev": "nodemon src/index.ts",
-    "build": "tsc",
+    "build": "tsc && npm run copy-assets",
+    "copy-assets": "ts-node tools/copyAssets",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -20,7 +21,9 @@
     "fs": "0.0.1-security",
     "graphql": "14.6.0",
     "lodash": "^4.17.15",
-    "merge-graphql-schemas": "^1.7.7"
+    "merge-graphql-schemas": "^1.7.7",
+    "path": "^0.12.7",
+    "shelljs": "^0.8.3"
   },
   "devDependencies": {
     "@types/express": "^4.17.4",
