@@ -2,7 +2,7 @@ FROM node:latest
 
 WORKDIR /home/cs806/ilend/ilend-addresses-service
 
-COPY * ./
+COPY . .
 
 RUN ls -l
 
