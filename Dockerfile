@@ -6,8 +6,6 @@ COPY . .
 
 RUN npm install
 
-RUN cd tools
-
 RUN npm run build
 
 WORKDIR /home/cs806/ilend/ilend-addresses-service/dist
