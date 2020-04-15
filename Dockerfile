@@ -4,9 +4,11 @@ WORKDIR /home/cs806/ilend/ilend-addresses-service
 
 COPY * ./
 
+RUN ls -l
+
 RUN npm install
 
-RUN ls
+RUN ls -l
 
 RUN cd tools
 
