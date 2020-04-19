@@ -13,7 +13,7 @@ export class AddressConnector extends DataSource {
       if (err) {
         throw err;
       }
-      this.countries = JSON.parse(data);
+      this.countries = JSON.parse(data).sort();
     });
 
     fs.readFile(path.join(__dirname, '/../..', '/resources/cities.json'), 'utf-8', (err, data) => {
@@ -29,6 +29,14 @@ export class AddressConnector extends DataSource {
   }
 
   getCitiesByCountry(countryName: string) {
-    return this.cities[countryName];
+    return this.cities[countryName].sort();
+  }
+
+  getCitiesByCountries(countriesNames: Array<string>) {
+    let result = [];
+    countriesNames.forEach((countryName) => {
+      result = result.concat(this.cities[countryName]);
+    });
+    return result.sort();
   }
 }
