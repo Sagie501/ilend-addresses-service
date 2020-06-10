@@ -1,4 +1,4 @@
 import { resolvers as addressResolver } from '../entities/address/address.resolvers';
-import * as _ from 'lodash';
+import { mergeResolvers } from '@graphql-tools/merge';
 
-export const rootResolvers = _.merge(addressResolver);
+export const rootResolvers = mergeResolvers([addressResolver]);
