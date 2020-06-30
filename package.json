@@ -20,7 +20,7 @@
     "apollo-server-express": "^2.14.3",
     "express": "^4.17.1",
     "fs": "0.0.1-security",
-    "graphql": "~15.0.0",
+    "graphql": "~15.2.0",
     "graphql-tools": "^6.0.9",
     "path": "^0.12.7"
   },
